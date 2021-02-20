@@ -1,4 +1,4 @@
-module github.com/getsentry/sentry-go
+module github.com/harmony-development/sentry-go
 
 go 1.13
 

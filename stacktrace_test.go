@@ -34,23 +34,23 @@ func TestSplitQualifiedFunctionName(t *testing.T) {
 		{"runtime.Callers", "runtime", "Callers"},
 		{"main.main.func1", "main", "main.func1"},
 		{
-			"github.com/getsentry/sentry-go.Init",
-			"github.com/getsentry/sentry-go",
+			"github.com/harmony-development/sentry-go.Init",
+			"github.com/harmony-development/sentry-go",
 			"Init",
 		},
 		{
-			"github.com/getsentry/sentry-go.(*Hub).Flush",
-			"github.com/getsentry/sentry-go",
+			"github.com/harmony-development/sentry-go.(*Hub).Flush",
+			"github.com/harmony-development/sentry-go",
 			"(*Hub).Flush",
 		},
 		{
-			"github.com/getsentry/sentry-go.Test.func2.1.1",
-			"github.com/getsentry/sentry-go",
+			"github.com/harmony-development/sentry-go.Test.func2.1.1",
+			"github.com/harmony-development/sentry-go",
 			"Test.func2.1.1",
 		},
 		{
-			"github.com/getsentry/confusing%2epkg%2ewith%2edots.Test.func1",
-			"github.com/getsentry/confusing%2epkg%2ewith%2edots",
+			"github.com/harmony-development/confusing%2epkg%2ewith%2edots.Test.func1",
+			"github.com/harmony-development/confusing%2epkg%2ewith%2edots",
 			"Test.func1",
 		},
 	}
@@ -93,19 +93,19 @@ func TestFilterFrames(t *testing.T) {
 				},
 				{
 					Function: "TestNewStacktrace.func1",
-					Module:   "github.com/getsentry/sentry-go_test",
+					Module:   "github.com/harmony-development/sentry-go_test",
 					AbsPath:  "/somewhere/sentry/sentry-go/stacktrace_external_test.go",
 					InApp:    true,
 				},
 				{
 					Function: "StacktraceTestHelper.NewStacktrace",
-					Module:   "github.com/getsentry/sentry-go",
+					Module:   "github.com/harmony-development/sentry-go",
 					AbsPath:  "/somewhere/sentry/sentry-go/stacktrace_test.go",
 					InApp:    true,
 				},
 				{
 					Function: "NewStacktrace",
-					Module:   "github.com/getsentry/sentry-go",
+					Module:   "github.com/harmony-development/sentry-go",
 					AbsPath:  "/somewhere/sentry/sentry-go/stacktrace.go",
 					InApp:    true,
 				},
@@ -113,7 +113,7 @@ func TestFilterFrames(t *testing.T) {
 			out: []Frame{
 				{
 					Function: "TestNewStacktrace.func1",
-					Module:   "github.com/getsentry/sentry-go_test",
+					Module:   "github.com/harmony-development/sentry-go_test",
 					AbsPath:  "/somewhere/sentry/sentry-go/stacktrace_external_test.go",
 					InApp:    true,
 				},
@@ -124,13 +124,13 @@ func TestFilterFrames(t *testing.T) {
 			in: []Frame{
 				{
 					Function: "Example.Integration",
-					Module:   "github.com/getsentry/sentry-go/http/integration",
+					Module:   "github.com/harmony-development/sentry-go/http/integration",
 					AbsPath:  "/somewhere/sentry/sentry-go/http/integration/integration.go",
 					InApp:    true,
 				},
 				{
 					Function: "(*Handler).Handle",
-					Module:   "github.com/getsentry/sentry-go/http",
+					Module:   "github.com/harmony-development/sentry-go/http",
 					AbsPath:  "/somewhere/sentry/sentry-go/http/sentryhttp.go",
 					InApp:    true,
 				},

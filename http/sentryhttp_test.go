@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	sentryhttp "github.com/getsentry/sentry-go/http"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
+	"github.com/harmony-development/sentry-go"
+	sentryhttp "github.com/harmony-development/sentry-go/http"
 )
 
 func TestIntegration(t *testing.T) {

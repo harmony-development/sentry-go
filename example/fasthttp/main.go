@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/getsentry/sentry-go"
-	sentryfasthttp "github.com/getsentry/sentry-go/fasthttp"
+	"github.com/harmony-development/sentry-go"
+	sentryfasthttp "github.com/harmony-development/sentry-go/fasthttp"
 	"github.com/valyala/fasthttp"
 )
 

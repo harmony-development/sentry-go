@@ -5,13 +5,13 @@
 raven-go
 
 ```go
-go get github.com/getsentry/raven-go
+go get github.com/harmony-development/raven-go
 ```
 
 sentry-go
 
 ```go
-go get github.com/getsentry/sentry-go@v0.0.1
+go get github.com/harmony-development/sentry-go@v0.0.1
 ```
 
 ## Configuration
@@ -19,7 +19,7 @@ go get github.com/getsentry/sentry-go@v0.0.1
 raven-go
 
 ```go
-import "github.com/getsentry/raven-go"
+import "github.com/harmony-development/raven-go"
 
 func main() {
     raven.SetDSN("___PUBLIC_DSN___")
@@ -31,7 +31,7 @@ sentry-go
 ```go
 import (
     "fmt"
-    "github.com/getsentry/sentry-go"
+    "github.com/harmony-development/sentry-go"
 )
 
 func main() {
@@ -86,7 +86,7 @@ import (
     "log"
 
     "github.com/certifi/gocertifi"
-    "github.com/getsentry/sentry-go"
+    "github.com/harmony-development/sentry-go"
 )
 
 sentryClientOptions := sentry.ClientOptions{

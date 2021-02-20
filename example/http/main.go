@@ -24,8 +24,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/getsentry/sentry-go"
-	sentryhttp "github.com/getsentry/sentry-go/http"
+	"github.com/harmony-development/sentry-go"
+	sentryhttp "github.com/harmony-development/sentry-go/http"
 )
 
 var addr = flag.String("addr", "127.0.0.1:3000", "bind address")

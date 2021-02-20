@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/getsentry/sentry-go"
 	"github.com/gin-gonic/gin"
+	"github.com/harmony-development/sentry-go"
 )
 
 const valuesKey = "sentry"

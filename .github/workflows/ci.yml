@@ -26,7 +26,7 @@ jobs:
     # https://github.com/mvdan/github-actions-golang#how-do-i-set-up-a-gopath-build
     defaults:
       run:
-        working-directory: ${{ github.workspace }}/src/github.com/getsentry/sentry-go
+        working-directory: ${{ github.workspace }}/src/github.com/harmony-development/sentry-go
     steps:
       - uses: actions/setup-go@v2
         if: matrix.go-version != 'tip'
@@ -44,7 +44,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           # Relative path under Github workspace
-          path: ${{ github.workspace }}/src/github.com/getsentry/sentry-go
+          path: ${{ github.workspace }}/src/github.com/harmony-development/sentry-go
           # Getting all history enables using `git merge-base origin/master HEAD`
           fetch-depth: 0
       - name: Adjustments for Module mode enabled
@@ -84,18 +84,18 @@ jobs:
     # https://github.com/mvdan/github-actions-golang#how-do-i-set-up-a-gopath-build
     defaults:
       run:
-        working-directory: ${{ env.GOPATH }}/src/github.com/getsentry/sentry-go
+        working-directory: ${{ env.GOPATH }}/src/github.com/harmony-development/sentry-go
     steps:
       - uses: actions/checkout@v2
         with:
           # Relative path under Github workspace
-          path: src/github.com/getsentry/sentry-go
+          path: src/github.com/harmony-development/sentry-go
       - uses: actions/setup-go@v2
         with:
           go-version: 1.15
       - name: Run tests outside of GOPATH
         run: |
-          mv $GOPATH/src/github.com/getsentry/sentry-go ~/sentry-go
+          mv $GOPATH/src/github.com/harmony-development/sentry-go ~/sentry-go
           cd ~/sentry-go
           export GOPATH=
           go env GOPATH

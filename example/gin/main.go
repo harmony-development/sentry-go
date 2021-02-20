@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/getsentry/sentry-go"
-	sentrygin "github.com/getsentry/sentry-go/gin"
 	"github.com/gin-gonic/gin"
+	"github.com/harmony-development/sentry-go"
+	sentrygin "github.com/harmony-development/sentry-go/gin"
 )
 
 func main() {

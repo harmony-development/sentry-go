@@ -11,7 +11,7 @@ import (
 )
 
 // Protocol Docs (kinda)
-// https://github.com/getsentry/rust-sentry-types/blob/master/src/protocol/v7.rs
+// https://github.com/harmony-development/rust-sentry-types/blob/master/src/protocol/v7.rs
 
 // transactionType is the type of a transaction event.
 const transactionType = "transaction"

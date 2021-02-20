@@ -32,7 +32,7 @@ process:
    - Be your own first reviewer. Make sure your code compiles and passes the
      existing tests.
 
-[new-issue]: https://github.com/getsentry/sentry-go/issues/new/choose
+[new-issue]: https://github.com/harmony-development/sentry-go/issues/new/choose
 [commit-guide]: https://develop.sentry.dev/code-review/#commit-guidelines
 [pr-guide]: https://develop.sentry.dev/code-review/#guidelines-for-submitters
 
@@ -88,7 +88,7 @@ $ golangci-lint run
 
 2. Commit with `misc: vX.X.X changelog` commit message and push to `master`.
 
-3. Let [`craft`](https://github.com/getsentry/craft) do the rest:
+3. Let [`craft`](https://github.com/harmony-development/craft) do the rest:
 
    ```console
    $ craft prepare X.X.X

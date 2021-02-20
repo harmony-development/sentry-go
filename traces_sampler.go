@@ -3,7 +3,7 @@ package sentry
 import (
 	"fmt"
 
-	"github.com/getsentry/sentry-go/internal/crypto/randutil"
+	"github.com/harmony-development/sentry-go/internal/crypto/randutil"
 )
 
 // A TracesSampler makes sampling decisions for spans.

@@ -143,7 +143,7 @@ func TestStartSpan(t *testing.T) {
 		Tags: nil,
 		// TODO(tracing): the root span / transaction data field is
 		// mapped into Event.Extra for now, pending spec clarification.
-		// https://github.com/getsentry/develop/issues/244#issuecomment-778694182
+		// https://github.com/harmony-development/develop/issues/244#issuecomment-778694182
 		Extra:     span.Data,
 		Timestamp: endTime,
 		StartTime: startTime,

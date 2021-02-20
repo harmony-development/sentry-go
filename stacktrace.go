@@ -6,6 +6,8 @@ import (
 	"reflect"
 	"runtime"
 	"strings"
+
+	"github.com/ztrue/tracerr"
 )
 
 const unknown string = "unknown"
@@ -48,6 +50,61 @@ func NewStacktrace() *Stacktrace {
 
 // ExtractStacktrace creates a new Stacktrace based on the given error.
 func ExtractStacktrace(err error) *Stacktrace {
+	if v := tracerr.StackTrace(err); v != nil {
+		frames := []Frame{}
+		for _, fr := range v {
+			var abspath, relpath string
+			// NOTE: f.File paths historically use forward slash as path separator even
+			// on Windows, though this is not yet documented, see
+			// https://golang.org/issues/3335. In any case, filepath.IsAbs can work with
+			// paths with either slash or backslash on Windows.
+			switch {
+			case fr.Path == "":
+				relpath = unknown
+				// Leave abspath as the empty string to be omitted when serializing
+				// event as JSON.
+				abspath = ""
+			case filepath.IsAbs(fr.Path):
+				abspath = fr.Path
+				// TODO: in the general case, it is not trivial to come up with a
+				// "project relative" path with the data we have in run time.
+				// We shall not use filepath.Base because it creates ambiguous paths and
+				// affects the "Suspect Commits" feature.
+				// For now, leave relpath empty to be omitted when serializing the event
+				// as JSON. Improve this later.
+				relpath = ""
+			default:
+				// f.File is a relative path. This may happen when the binary is built
+				// with the -trimpath flag.
+				relpath = fr.Path
+				// Omit abspath when serializing the event as JSON.
+				abspath = ""
+			}
+
+			function := fr.Func
+			var pkg string
+
+			if function != "" {
+				pkg, function = splitQualifiedFunctionName(function)
+			}
+
+			frame := Frame{
+				AbsPath:  abspath,
+				Filename: relpath,
+				Lineno:   fr.Line,
+				Module:   pkg,
+				Function: function,
+			}
+
+			frame.InApp = isInAppFrame(frame)
+
+			frames = append(frames, frame)
+		}
+
+		return &Stacktrace{
+			Frames: frames,
+		}
+	}
 	method := extractReflectedStacktraceMethod(err)
 
 	var pcs []uintptr
@@ -269,7 +326,7 @@ func filterFrames(frames []Frame) []Frame {
 		}
 		// Skip Sentry internal frames, except for frames in _test packages (for
 		// testing).
-		if strings.HasPrefix(frame.Module, "github.com/getsentry/sentry-go") &&
+		if strings.HasPrefix(frame.Module, "github.com/harmony-development/sentry-go") &&
 			!strings.HasSuffix(frame.Module, "_test") {
 			continue
 		}

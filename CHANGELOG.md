@@ -21,7 +21,7 @@
 _NOTE:_
 This version introduces support for [Sentry's Performance Monitoring](https://docs.sentry.io/platforms/go/performance/).
 The new tracing capabilities are beta, and we plan to expand them on future versions. Feedback is welcome, please open new issues on GitHub.
-The `sentryhttp` package got better API docs, an [updated usage example](https://github.com/getsentry/sentry-go/tree/master/example/http) and support for creating automatic transactions as part of Performance Monitoring.
+The `sentryhttp` package got better API docs, an [updated usage example](https://github.com/harmony-development/sentry-go/tree/master/example/http) and support for creating automatic transactions as part of Performance Monitoring.
 
 ## v0.8.0
 
@@ -113,8 +113,8 @@ allocated.
   import (
   	"fmt"
 
-  	"github.com/getsentry/sentry-go"
-  	sentryfasthttp "github.com/getsentry/sentry-go/fasthttp"
+  	"github.com/harmony-development/sentry-go"
+  	sentryfasthttp "github.com/harmony-development/sentry-go/fasthttp"
   	"github.com/valyala/fasthttp"
   )
   ```

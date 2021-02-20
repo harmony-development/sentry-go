@@ -171,7 +171,7 @@ func (s *Span) Finish() {
 	}
 
 	// TODO(tracing): add breadcrumbs
-	// (see https://github.com/getsentry/sentry-python/blob/f6f3525f8812f609/sentry_sdk/tracing.py#L372)
+	// (see https://github.com/harmony-development/sentry-python/blob/f6f3525f8812f609/sentry_sdk/tracing.py#L372)
 
 	hub := hubFromContext(s.ctx)
 	if hub.Scope().Transaction() == "" {

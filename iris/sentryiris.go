@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/getsentry/sentry-go"
+	"github.com/harmony-development/sentry-go"
 	"github.com/kataras/iris/v12"
 )
 
